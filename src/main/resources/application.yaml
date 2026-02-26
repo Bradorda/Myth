@@ -7,9 +7,8 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
-    defer-datasource-initialization: true
 
   datasource:
     url: jdbc:postgresql://localhost:5432/myth

@@ -30,11 +30,11 @@ public class Documento {
     private void validar(TipoDocumento tipo, String numero) {
         if(numero == null || numero.length() != tipo.getTamanho()){
             throw new DocumentoInvalidoException(
-                    String.format("Numero %s invalido para %s", numero, tipo), getClass().getPackageName());
+                    String.format("Numero %s invalido para %s", numero, tipo));
         }
         if (this.tipo == null) {
             throw new DocumentoInvalidoException(
-                    String.format("Tipo de documento %s obrigatório",tipo), getClass().getPackageName());
+                    String.format("Tipo de documento %s obrigatório",tipo));
         }
 
     }

@@ -1,3 +1,23 @@
 spring:
   application:
     name: myth
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/myth
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    root: WARN
+    com.bradorda-spring_security: WARN

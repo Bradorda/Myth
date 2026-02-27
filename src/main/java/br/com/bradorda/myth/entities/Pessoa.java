@@ -1,13 +1,15 @@
 package br.com.bradorda.myth.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
+@Entity
 @Table(name = "pessoas")
 public class Pessoa implements Serializable {
 
@@ -32,5 +34,8 @@ public class Pessoa implements Serializable {
 
     @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private Endereco endereco;
+
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private User user;
 
 }

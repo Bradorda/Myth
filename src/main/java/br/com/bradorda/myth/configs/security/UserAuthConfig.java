@@ -1,15 +1,17 @@
-package br.com.bradorda.myth.configs;
+package br.com.bradorda.myth.configs.security;
 
 import br.com.bradorda.myth.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-public class AuthConfig implements UserDetailsService {
+@Service
+public class UserAuthConfig implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    public AuthConfig(UserRepository userRepository) {
+    public UserAuthConfig(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

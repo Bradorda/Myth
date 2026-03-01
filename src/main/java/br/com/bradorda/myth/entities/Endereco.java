@@ -2,12 +2,14 @@ package br.com.bradorda.myth.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "enderecos")
+@Getter @Setter @ToString @EqualsAndHashCode @AllArgsConstructor @NoArgsConstructor
 public class Endereco implements Serializable {
 
     @Serial

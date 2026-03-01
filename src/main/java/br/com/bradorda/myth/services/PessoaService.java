@@ -1,6 +1,8 @@
 package br.com.bradorda.myth.services;
 
 import br.com.bradorda.myth.entities.Pessoa;
+import org.springframework.transaction.annotation.Transactional;
+import br.com.bradorda.myth.exceptions.PessoaNaoEncontradaException;
 import br.com.bradorda.myth.repositories.PessoaRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +15,14 @@ public class PessoaService {
         this.pessoaRepository = pessoaRepository;
     }
 
+    @Transactional
     public Pessoa salvar(Pessoa pessoa){
-        try{
-            return pessoaRepository.save(pessoa);
-        }catch (Exception e){
-            throw new RuntimeException("Não foi possivel salvar a pessoa",e.getCause());
-        }
+        return pessoaRepository.save(pessoa);
     }
 
+    @Transactional(readOnly = true)
     public Pessoa buscarPorId(Long id){
         return pessoaRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Não foi possivel encontrar a pessoa por id"));
+                .orElseThrow(() -> new PessoaNaoEncontradaException(id));
     }
 }

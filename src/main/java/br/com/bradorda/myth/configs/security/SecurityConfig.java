@@ -37,7 +37,7 @@ public class SecurityConfig{
                  .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                  .authorizeHttpRequests( authorize -> authorize
                          .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
-                         .requestMatchers(HttpMethod.POST,"/createAccount").permitAll()
+                         .requestMatchers(HttpMethod.POST,"/create-new-user").permitAll()
                          .requestMatchers(HttpMethod.POST, "/login").permitAll()
                          .anyRequest().authenticated());
 
